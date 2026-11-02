@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Lawn care, yard cleanup, pool cleaning, exterior house cleaning, and property services in Jackson, Mississippi. Request a free estimate."
+  />
+  <title>Outdoor & Property Care | Jackson, MS</title>
+
+  <style>
+    :root {
+      --green: #1e5631;
+      --green-dark: #153f24;
+      --lime: #b9d878;
+      --cream: #f8f7f1;
+      --ink: #1d2921;
+      --muted: #5e6a61;
+      --white: #fff;
+      --border: #e2e7df;
+      --shadow: 0 14px 40px rgba(21, 63, 36, .10);
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--ink);
+      background: var(--white);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; }
+
+    .container {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      background: var(--green-dark);
+      color: var(--white);
+      text-align: center;
+      padding: 9px 16px;
+      font-size: .9rem;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255,255,255,.96);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(10px);
+    }
+
+    .nav {
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      text-decoration: none;
+      font-weight: 800;
+      color: var(--green-dark);
+      line-height: 1.15;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 13px;
+      display: grid;
+      place-items: center;
+      background: var(--green);
+      color: var(--white);
+      font-size: 1.3rem;
+    }
+
+    .brand small {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: .7rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: .94rem;
+      font-weight: 700;
+    }
+
+    .nav-links a:hover { color: var(--green); }
+
+    .button {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      min-height: 48px;
+      padding: 12px 20px;
+      border: 0;
+      border-radius: 10px;
+      background: var(--green);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 800;
+      cursor: pointer;
+      transition: .2s ease;
+    }
+
+    .button:hover {
+      background: var(--green-dark);
+      transform: translateY(-1px);
+    }
+
+    .button-light {
+      background: var(--white);
+      color: var(--green-dark);
+    }
+
+    .button-light:hover {
+      background: var(--cream);
+      color: var(--green-dark);
+    }
+
+    .hero {
+      padding: 74px 0 68px;
+      background:
+        radial-gradient(circle at 85% 15%, rgba(185,216,120,.35), transparent 28%),
+        linear-gradient(135deg, #f8f7f1 0%, #edf3e8 100%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.08fr .92fr;
+      gap: 54px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      color: var(--green);
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+
+    h1 {
+      max-width: 680px;
+      margin: 14px 0 18px;
+      font-size: clamp(2.6rem, 5vw, 4.8rem);
+      line-height: 1.02;
+      letter-spacing: -.055em;
+    }
+
+    h1 span { color: var(--green); }
+
+    .hero-copy {
+      max-width: 570px;
+      color: var(--muted);
+      font-size: 1.12rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 26px 0 20px;
+    }
+
+    .trust-line {
+      color: var(--muted);
+      font-size: .92rem;
+    }
+
+    .hero-card {
+      min-height: 390px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 30px;
+      border-radius: 26px;
+      color: var(--white);
+      background:
+        linear-gradient(180deg, rgba(17,53,29,.05) 10%, rgba(17,53,29,.88) 100%),
+        linear-gradient(135deg, #8eae65, #315e37 55%, #1c422b);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card::before {
+      content: "✦";
+      position: absolute;
+      top: 28px;
+      right: 34px;
+      color: rgba(255,255,255,.45);
+      font-size: 5rem;
+    }
+
+    .hero-card h2 {
+      max-width: 380px;
+      margin-bottom: 9px;
+      font-size: 2rem;
+      line-height: 1.15;
+    }
+
+    .hero-card p {
+      max-width: 400px;
+      margin-bottom: 0;
+      color: rgba(255,255,255,.85);
+    }
+
+    .trust-strip {
+      border-bottom: 1px solid var(--border);
+      background: var(--white);
+    }
+
+    .trust-items {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      padding: 22px 0;
+      text-align: center;
+      color: var(--green-dark);
+      font-size: .93rem;
+      font-weight: 800;
+    }
+
+    section { padding: 82px 0; }
+
+    .section-heading {
+      max-width: 680px;
+      margin: 0 auto 38px;
+      text-align: center;
+    }
+
+    .section-heading h2 {
+      margin: 10px 0 12px;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.1;
+      letter-spacing: -.04em;
+    }
+
+    .section-heading p { color: var(--muted); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .service-card {
+      padding: 25px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--white);
+      box-shadow: 0 7px 22px rgba(20,45,25,.04);
+    }
+
+    .service-icon {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 16px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: #edf4e3;
+      font-size: 1.4rem;
+    }
+
+    .service-card h3 {
+      margin-bottom: 8px;
+      font-size: 1.17rem;
+    }
+
+    .service-card p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    .process {
+      background: var(--cream);
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .step {
+      padding: 26px;
+      border-radius: var(--radius);
+      background: var(--white);
+    }
+
+    .step-number {
+      width: 38px;
+      height: 38px;
+      margin-bottom: 15px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--green);
+      color: var(--white);
+      font-weight: 800;
+    }
+
+    .step p { margin-bottom: 0; color: var(--muted); }
+
+    .booking {
+      background: var(--green-dark);
+      color: var(--white);
+    }
+
+    .booking-grid {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 55px;
+      align-items: start;
+    }
+
+    .booking-copy h2 {
+      margin: 10px 0 16px;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.08;
+      letter-spacing: -.04em;
+    }
+
+    .booking-copy p { color: rgba(255,255,255,.76); }
+
+    .booking-note {
+      margin-top: 25px;
+      padding: 16px;
+      border: 1px solid rgba(255,255,255,.22);
+      border-radius: 12px;
+      color: rgba(255,255,255,.88);
+      font-size: .92rem;
+    }
+
+    form {
+      padding: 28px;
+      border-radius: var(--radius);
+      background: var(--white);
+      color: var(--ink);
+      box-shadow: var(--shadow);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .field { margin-bottom: 16px; }
+
+    label {
+      display: block;
+      margin-bottom: 7px;
+      font-size: .88rem;
+      font-weight: 800;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      min-height: 47px;
+      padding: 11px 12px;
+      border: 1px solid #cfd8ce;
+      border-radius: 9px;
+      background: #fff;
+      color: var(--ink);
+      font: inherit;
+    }
+
+    textarea {
+      min-height: 105px;
+      resize: vertical;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: 3px solid rgba(185,216,120,.5);
+      border-color: var(--green);
+    }
+
+    .form-submit { width: 100%; }
+
+    .form-small {
+      margin: 12px 0 0;
+      color: var(--muted);
+      text-align: center;
+      font-size: .8rem;
+    }
+
+    #form-message {
+      display: none;
+      margin-top: 14px;
+      padding: 12px;
+      border-radius: 9px;
+      background: #edf4e3;
+      color: var(--green-dark);
+      font-weight: 700;
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    details {
+      padding: 20px;
+      border: 1px solid var(--border);
+      border-radius: 13px;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 800;
+    }
+
+    details p {
+      margin: 12px 0 0;
+      color: var(--muted);
+    }
+
+    footer {
+      padding: 28px 0;
+      background: #102e1b;
+      color: rgba(255,255,255,.8);
+      font-size: .88rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .footer-inner a { color: var(--white); }
+
+    @media (max-width: 800px) {
+      .nav-links { gap: 13px; }
+      .nav-links a:not(.button) { display: none; }
+      .hero-grid, .booking-grid { grid-template-columns: 1fr; }
+      .hero { padding-top: 52px; }
+      .hero-card { min-height: 290px; }
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .steps { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 540px) {
+      .container { width: min(100% - 28px, 1120px); }
+      .nav { min-height: 66px; }
+      .nav-links .button { min-height: 42px; padding: 9px 12px; font-size: .86rem; }
+      .trust-items { grid-template-columns: 1fr; gap: 8px; }
+      .services-grid, .faq-grid, .form-grid { grid-template-columns: 1fr; }
+      section { padding: 62px 0; }
+      form { padding: 21px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="topbar">Serving Jackson, MS and nearby communities · Request your free estimate</div>
+
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#" aria-label="Home">
+        <span class="brand-mark">🌿</span>
+        <span>
+          [Your Business Name]
+          <small>Outdoor & Property Care LLC</small>
+        </span>
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#services">Services</a>
+        <a href="#how-it-works">How it works</a>
+        <a href="#booking" class="button">Request an estimate</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Local property care in Jackson, Mississippi</span>
+          <h1>A cleaner, better-kept property—<span>without the hassle.</span></h1>
+          <p class="hero-copy">
+            From lawn and yard cleanup to pool and exterior house cleaning,
+            get dependable help with the outdoor jobs that keep your property looking its best.
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="#booking">Get a free estimate <span aria-hidden="true">→</span></a>
+            <a class="button button-light" href="tel:+16015550123">Call (601) 555-0123</a>
+          </div>
+          <p class="trust-line">Locally operated · LLC · Clear estimates before work begins</p>
+        </div>
+
+        <div class="hero-card">
+          <span class="eyebrow" style="color: var(--lime)">One call. More done.</span>
+          <h2>Practical help for the work your property needs.</h2>
+          <p>Tell us what needs attention. We’ll follow up to discuss the job, timing, and estimate.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="trust-strip" aria-label="Business highlights">
+      <div class="container trust-items">
+        <span>✓ Flexible service requests</span>
+        <span>✓ Residential property care</span>
+        <span>✓ Jackson-area service</span>
+      </div>
+    </div>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Services</span>
+          <h2>Get the property-care help you need</h2>
+          <p>Choose one service or tell us about a few jobs you’d like handled.</p>
+        </div>
+
+        <div class="services-grid">
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">🌱</div>
+            <h3>Lawn mowing & yard care</h3>
+            <p>Grass cutting, raking, and general yard tidying to keep your outdoor space neat.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">🌳</div>
+            <h3>Bush & brush clearing</h3>
+            <p>Clear overgrown areas and improve the look and usability of your yard.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">🪚</div>
+            <h3>Small & medium tree cutting</h3>
+            <p>Ask about tree-cutting work and share details about the tree and access to the area.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">💧</div>
+            <h3>Physical pool cleaning</h3>
+            <p>Hands-on pool cleaning to help get your pool area back in shape.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">🏠</div>
+            <h3>Exterior house cleaning</h3>
+            <p>Exterior cleaning help for the areas around your home that need attention.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">🧰</div>
+            <h3>Other property services</h3>
+            <p>Have a different outdoor or property-care job? Send a request and describe it.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="process" id="how-it-works">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Simple from start to finish</span>
+          <h2>Three easy steps to get started</h2>
+          <p>No guesswork—send the details and we’ll coordinate the next step with you.</p>
+        </div>
+
+        <div class="steps">
+          <article class="step">
+            <div class="step-number">1</div>
+            <h3>Tell us what you need</h3>
+            <p>Choose a service and share your address, preferred timing, and a few job details.</p>
+          </article>
+          <article class="step">
+            <div class="step-number">2</div>
+            <h3>Get a follow-up</h3>
+            <p>We’ll contact you to clarify the work and discuss an estimate and availability.</p>
+          </article>
+          <article class="step">
+            <div class="step-number">3</div>
+            <h3>Confirm your service</h3>
+            <p>Once the scope and timing are agreed, we’ll arrange the service with you.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="booking" id="booking">
+      <div class="container booking-grid">
+        <div class="booking-copy">
+          <span class="eyebrow" style="color: var(--lime)">Request service</span>
+          <h2>Let’s talk about your property.</h2>
+          <p>
+            Send a few details and your preferred date. This is a request—not a confirmed
+            appointment—so we can review the job and get back to you.
+          </p>
+          <div class="booking-note">
+            <strong>Prefer to call?</strong><br />
+            <a href="tel:+16015550123">(601) 555-0123</a><br />
+            Replace this number with your business phone.
+          </div>
+        </div>
+
+        <form id="booking-form">
+          <div class="form-grid">
+            <div class="field">
+              <label for="name">Your name *</label>
+              <input id="name" name="name" autocomplete="name" required />
+            </div>
+            <div class="field">
+              <label for="phone">Phone number *</label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel" required />
+            </div>
+          </div>
+
+          <div class="form-grid">
+            <div class="field">
+              <label for="email">Email address</label>
+              <input id="email" name="email" type="email" autocomplete="email" />
+            </div>
+            <div class="field">
+              <label for="service">Service needed *</label>
+              <select id="service" name="service" required>
+                <option value="">Choose a service</option>
+                <option>Lawn mowing / yard care</option>
+                <option>Bush or brush clearing</option>
+                <option>Small or medium tree cutting</option>
+                <option>Physical pool cleaning</option>
+                <option>Exterior house cleaning</option>
+                <option>Other property service</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-grid">
+            <div class="field">
+              <label for="date">Preferred service date</label>
+              <input id="date" name="date" type="date" />
+            </div>
+            <div class="field">
+              <label for="zip">Property ZIP code *</label>
+              <input id="zip" name="zip" inputmode="numeric" autocomplete="postal-code" required />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="details">Tell us a little about the job</label>
+            <textarea id="details" name="details" placeholder="For example: yard size, what needs clearing, or any access details."></textarea>
+          </div>
+
+          <button class="button form-submit" type="submit">Send my service request →</button>
+          <p class="form-small">Your request is not confirmed until we contact you.</p>
+          <div id="form-message" role="status" aria-live="polite">
+            Thanks! This demo form isn’t connected yet. Please connect it to your email or booking system before publishing.
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Good to know</span>
+          <h2>Common questions</h2>
+        </div>
+        <div class="faq-grid">
+          <details>
+            <summary>Do you provide free estimates?</summary>
+            <p>Use this space to explain whether estimates are free and how you provide them, such as by phone, photos, or an on-site visit.</p>
+          </details>
+          <details>
+            <summary>What areas do you serve?</summary>
+            <p>Service is focused on Jackson, Mississippi. Add the specific nearby cities or ZIP codes you cover before publishing.</p>
+          </details>
+          <details>
+            <summary>Is submitting the form a confirmed booking?</summary>
+            <p>No. It sends a service request. You’ll confirm the job scope, estimate, and appointment directly with the customer.</p>
+          </details>
+          <details>
+            <summary>Can I request more than one service?</summary>
+            <p>Yes. Customers can list multiple jobs in the details field, and you can follow up to coordinate them.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> [Your Business Name] LLC · Jackson, Mississippi</span>
+      <span><a href="tel:+16015550123">(601) 555-0123</a> · <a href="mailto:you@example.com">you@example.com</a></span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Demo behavior only. Connect this form to a form provider or booking backend
+    // before publishing so requests are actually delivered to your business.
+    document.getElementById("booking-form").addEventListener("submit", function (event) {
+      event.preventDefault();
+      document.getElementById("form-message").style.display = "block";
+    });
+  </script>
+</body>
+</html>
