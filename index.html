@@ -7,7 +7,7 @@
     name="description"
     content="Lawn care, yard cleanup, pool cleaning, exterior house cleaning, and property services in Jackson, Mississippi. Request a free estimate."
   />
-  <Flanning Property Services LLC>Outdoor & Property Care | Jackson, MS</title>
+  <title>Flanning Property Services LLC | Outdoor & Property Care in Jackson, MS</title>
 
   <style>
     :root {
@@ -129,9 +129,14 @@
       transition: .2s ease;
     }
 
-    .button:hover {
+    .button:hover:not(:disabled) {
       background: var(--green-dark);
       transform: translateY(-1px);
+    }
+
+    .button:disabled {
+      opacity: .65;
+      cursor: not-allowed;
     }
 
     .button-light {
@@ -420,11 +425,24 @@
     #form-message {
       display: none;
       margin-top: 14px;
-      padding: 12px;
+      padding: 13px 15px;
       border-radius: 9px;
-      background: #edf4e3;
-      color: var(--green-dark);
       font-weight: 700;
+      font-size: .92rem;
+    }
+
+    #form-message.success {
+      display: block;
+      background: #edf4e3;
+      border: 1px solid #b9d878;
+      color: var(--green-dark);
+    }
+
+    #form-message.error {
+      display: block;
+      background: #fdecec;
+      border: 1px solid #f5b7b7;
+      color: #8b1e1e;
     }
 
     .faq-grid {
@@ -519,7 +537,7 @@
           </p>
           <div class="hero-actions">
             <a class="button" href="#booking">Get a free estimate <span aria-hidden="true">→</span></a>
-            <a class="button button-light" href="tel:+16015550123">Call (251) 586-5583</a>
+            <a class="button button-light" href="tel:+12515865583">Call (251) 586-5583</a>
           </div>
           <p class="trust-line">Locally operated · LLC · Clear estimates before work begins</p>
         </div>
@@ -626,13 +644,16 @@
             appointment—so we can review the job and get back to you.
           </p>
           <div class="booking-note">
-            <strong>Prefer to call?</strong><br />
-            <a href="tel:+16015550123">(251) 586-5583</a><br />
-            Replace this number with your business phone.
+            <strong>Prefer to call or text?</strong><br />
+            <a href="tel:+12515865583">(251) 586-5583</a><br />
+            Reach out directly for quick questions or urgent yard care.
           </div>
         </div>
 
-        <form id="booking-form">
+        <!-- Wired directly to Formspree endpoint -->
+        <form id="booking-form" action="https://formspree.io/f/xrpqgqry" method="POST">
+          <input type="hidden" name="_subject" value="New Property Service Request — Flanning Property Services LLC" />
+
           <div class="form-grid">
             <div class="field">
               <label for="name">Your name *</label>
@@ -653,12 +674,12 @@
               <label for="service">Service needed *</label>
               <select id="service" name="service" required>
                 <option value="">Choose a service</option>
-                <option>Lawn mowing / yard care</option>
-                <option>Bush or brush clearing</option>
-                <option>Small or medium tree cutting</option>
-                <option>Physical pool cleaning</option>
-                <option>Exterior house cleaning</option>
-                <option>Other property service</option>
+                <option value="Lawn mowing / yard care">Lawn mowing / yard care</option>
+                <option value="Bush or brush clearing">Bush or brush clearing</option>
+                <option value="Small or medium tree cutting">Small or medium tree cutting</option>
+                <option value="Physical pool cleaning">Physical pool cleaning</option>
+                <option value="Exterior house cleaning">Exterior house cleaning</option>
+                <option value="Other property service">Other property service</option>
               </select>
             </div>
           </div>
@@ -679,11 +700,9 @@
             <textarea id="details" name="details" placeholder="For example: yard size, what needs clearing, or any access details."></textarea>
           </div>
 
-          <button class="button form-submit" type="submit">Send my service request →</button>
+          <button id="submit-btn" class="button form-submit" type="submit">Send my service request →</button>
           <p class="form-small">Your request is not confirmed until we contact you.</p>
-          <div id="form-message" role="status" aria-live="polite">
-            Thanks! This demo form isn’t connected yet. Please connect it to your email or booking system before publishing.
-          </div>
+          <div id="form-message" role="status" aria-live="polite"></div>
         </form>
       </div>
     </section>
@@ -697,19 +716,19 @@
         <div class="faq-grid">
           <details>
             <summary>Do you provide free estimates?</summary>
-            <p>Use this space to explain whether estimates are free and how you provide them, such as by phone, photos, or an on-site visit.</p>
+            <p>Yes. Share your job details using the request form above or send photos by text/email, and we will provide a clear estimate before any work begins.</p>
           </details>
           <details>
             <summary>What areas do you serve?</summary>
-            <p>Service is focused on Jackson, Mississippi. Add the specific nearby cities or ZIP codes you cover before publishing.</p>
+            <p>We proudly serve Jackson, Mississippi and surrounding Metro communities including Ridgeland, Madison, Flowood, Brandon, Pearl, and Clinton.</p>
           </details>
           <details>
             <summary>Is submitting the form a confirmed booking?</summary>
-            <p>No. It sends a service request. You’ll confirm the job scope, estimate, and appointment directly with the customer.</p>
+            <p>No. Submitting the form sends a service request directly to our team. We will follow up by phone or email to confirm the job scope, estimate, and appointment date with you.</p>
           </details>
           <details>
             <summary>Can I request more than one service?</summary>
-            <p>Yes. Customers can list multiple jobs in the details field, and you can follow up to coordinate them.</p>
+            <p>Yes. Select your primary service and list any additional jobs (such as lawn mowing plus brush clearing or pool cleaning) in the job details box.</p>
           </details>
         </div>
       </div>
@@ -718,19 +737,60 @@
 
   <footer>
     <div class="container footer-inner">
-      <span>© <span id="year"></span> Flanning Property Services LLC LLC · Jackson, Mississippi</span>
-      <span><a href="tel:+16015550123">(251) 586-5583</a> · <a href="mailto:kenneyflanning@gmail.com">kenneyflanning@gmail.com</a></span>
+      <span>© <span id="year"></span> Flanning Property Services LLC · Jackson, Mississippi</span>
+      <span><a href="tel:+12515865583">(251) 586-5583</a> · <a href="mailto:kenneyflanning@gmail.com">kenneyflanning@gmail.com</a></span>
     </div>
   </footer>
 
   <script>
+    // Set current copyright year automatically
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Demo behavior only. Connect this form to a form provider or booking backend
-    // before publishing so requests are actually delivered to your business.
-    document.getElementById("booking-form").addEventListener("submit", function (event) {
+    // Handle Formspree submission asynchronously so visitors stay on the page
+    const bookingForm = document.getElementById("booking-form");
+    const submitBtn = document.getElementById("submit-btn");
+    const formMessage = document.getElementById("form-message");
+
+    bookingForm.addEventListener("submit", async function (event) {
       event.preventDefault();
-      document.getElementById("form-message").style.display = "block";
+
+      const originalBtnText = submitBtn.textContent;
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Sending request...";
+      formMessage.className = "";
+      formMessage.style.display = "none";
+
+      try {
+        const response = await fetch(bookingForm.action, {
+          method: bookingForm.method,
+          body: new FormData(bookingForm),
+          headers: {
+            "Accept": "application/json"
+          }
+        });
+
+        if (response.ok) {
+          bookingForm.reset();
+          formMessage.textContent = "✓ Request received! Thank you—Flanning Property Services LLC will follow up with you shortly.";
+          formMessage.className = "success";
+          formMessage.style.display = "block";
+        } else {
+          const errorData = await response.json().catch(() => null);
+          const errorDetail = (errorData && errorData.errors)
+            ? errorData.errors.map(err => err.message).join(", ")
+            : "Please check your entries and try again.";
+          formMessage.textContent = "Unable to send request: " + errorDetail;
+          formMessage.className = "error";
+          formMessage.style.display = "block";
+        }
+      } catch (networkError) {
+        formMessage.textContent = "Network error while sending your request. Please call or text (251) 586-5583 directly.";
+        formMessage.className = "error";
+        formMessage.style.display = "block";
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalBtnText;
+      }
     });
   </script>
 </body>
